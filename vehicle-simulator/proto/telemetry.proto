@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package vehicle.telemetry;
+
+enum HealthStatus {
+  HEALTHY = 0;
+  DEGRADING = 1;
+  CRITICAL = 2;
+}
+
+enum Severity {
+  INFO = 0;
+  WARNING = 1;
+  CRITICAL_SEVERITY = 2;
+}
+
+enum VehicleState {
+  PARKED = 0;
+  DRIVING = 1;
+  CHARGING = 2;
+}
+
+message Location {
+  double latitude = 1;
+  double longitude = 2;
+  float speed_kmh = 3;
+  float heading = 4;
+}
+
+message BatteryState {
+  float state_of_charge = 1;
+  float voltage = 2;
+  float temperature = 3;
+  float current_draw = 4;
+  HealthStatus health = 5;
+}
+
+message PowertrainState {
+  int32 motor_rpm = 1;
+  float motor_temp = 2;
+  float throttle_position = 3;
+  bool regen_braking_active = 4;
+}
+
+message DiagnosticCode {
+  string code = 1;
+  Severity severity = 2;
+  string description = 3;
+  int64 first_seen = 4;
+}
+
+message TelemetryEvent {
+  string vehicle_id = 1;
+  int64 timestamp = 2;
+  VehicleState state = 3;
+  Location gps = 4;
+  PowertrainState powertrain = 5;
+  BatteryState battery = 6;
+  repeated DiagnosticCode dtcs = 7;
+}
