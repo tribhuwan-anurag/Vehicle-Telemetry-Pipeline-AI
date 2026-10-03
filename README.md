@@ -22,6 +22,7 @@ Processed data is persisted to a time-series database
 An LLM API analyzes rolling 24-hour windows of signal data to classify anomaly patterns and surface likely root causes
 
 ## Project structure
+```
 vehicle-telemetry-pipeline/
 ├── ingestion/          # MQTT ingestion service
 ├── services/
@@ -30,18 +31,18 @@ vehicle-telemetry-pipeline/
 ├── grpc/                # gRPC service definitions and inter-service contracts
 ├── diagnostics/          # LLM-based anomaly classification layer
 └── storage/             # Time-series database integration
-
+```
 
 ## Running locally
-# Clone the repo
+Clone the repo
 git clone https://github.com/tribhuwan-anurag/vehicle-telemetry-pipeline
 cd vehicle-telemetry-pipeline
 
-# Install dependencies (adjust per service)
+Install dependencies (adjust per service)
 pip install -r requirements.txt   # Python service
 ./mvnw install                    # Java/Spring Boot service
 
-# Start MQTT broker and run services
+Start MQTT broker and run services
 
 Notes 
 This project was built to get hands-on experience with real-time, multi-signal data pipelines and to explore how LLMs can be applied 
