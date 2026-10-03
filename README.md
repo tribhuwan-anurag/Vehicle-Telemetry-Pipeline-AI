@@ -14,6 +14,15 @@ Processes signals with fault isolation, so a failure in one signal stream doesn'
 Runs a GenAI diagnostics layer that classifies anomaly patterns across 24-hour windows
 Automates root-cause classification instead of relying on manual trend inspection
 
+## Tech Stack
+| Layer | Tool |
+|---|---|
+| Ingestion | MQTT |
+| Services | Spring Boot (Java), Python |
+| Inter-service communication | gRPC |
+| Storage | Time-series database |
+| Diagnostics | LLM API (anomaly classification) |
+
 ## Architecture
 Sensor data (battery, GPS, DTC) streams in over MQTT
 Spring Boot and Python services process signals independently, connected via gRPC
