@@ -24,11 +24,11 @@ Traditional vehicle diagnostics rely on manual trend-based inspection, someone h
 | Diagnostics | LLM API (anomaly classification) |
 
 ## Architecture
-Sensor data (battery, GPS, DTC) streams in over MQTT
-Spring Boot and Python services process signals independently, connected via gRPC
-Fault isolation ensures one bad signal doesn't disrupt the rest of the pipeline
-Processed data is persisted to a time-series database
-An LLM API analyzes rolling 24-hour windows of signal data to classify anomaly patterns and surface likely root causes
+- Sensor data (battery, GPS, DTC) streams in over MQTT
+- Spring Boot and Python services process signals independently, connected via gRPC
+- Fault isolation ensures one bad signal doesn't disrupt the rest of the pipeline
+- Processed data is persisted to a time-series database
+- An LLM API analyzes rolling 24-hour windows of signal data to classify anomaly patterns and surface likely root causes
 
 ## Project structure
 ```
@@ -43,15 +43,15 @@ vehicle-telemetry-pipeline/
 ```
 
 ## Running locally
-Clone the repo
-git clone https://github.com/tribhuwan-anurag/vehicle-telemetry-pipeline
-cd vehicle-telemetry-pipeline
+- Clone the repo
+- git clone https://github.com/tribhuwan-anurag/vehicle-telemetry-pipeline
+- cd vehicle-telemetry-pipeline
 
-Install dependencies (adjust per service)
-pip install -r requirements.txt   # Python service
-./mvnw install                    # Java/Spring Boot service
+- Install dependencies (adjust per service)
+- pip install -r requirements.txt   # Python service
+- ./mvnw install                    # Java/Spring Boot service
 
-Start MQTT broker and run services
+- Start MQTT broker and run services
 
 Notes 
 This project was built to get hands-on experience with real-time, multi-signal data pipelines and to explore how LLMs can be applied 
