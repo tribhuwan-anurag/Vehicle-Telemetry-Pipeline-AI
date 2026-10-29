@@ -2,17 +2,17 @@
 
 A real-time telemetry ingestion and diagnostics pipeline for vehicle sensor data, built to process multi-signal data streams and automatically flag anomalies using an LLM-powered diagnostics layer.
 
-Why this exists
+## Why this exists
 
 Traditional vehicle diagnostics rely on manual trend-based inspection, someone has to look at battery, GPS, and DTC (Diagnostic Trouble Code) signals over time and spot patterns by hand. This project automates that process: it ingests raw sensor data in real time, isolates faults so one bad signal doesn't take down the whole pipeline, and uses an LLM to classify anomaly patterns automatically, replacing manual inspection with automated root-cause classification.
 
 ## What it does
-Ingests real-time, multi-signal vehicle data (battery, GPS, DTC codes) over MQTT
-Uses a gRPC-based inter-service layer to connect Python and Java components
-Persists incoming data to a time-series database for historical analysis
-Processes signals with fault isolation, so a failure in one signal stream doesn't block others
-Runs a GenAI diagnostics layer that classifies anomaly patterns across 24-hour windows
-Automates root-cause classification instead of relying on manual trend inspection
+- Ingests real-time, multi-signal vehicle data (battery, GPS, DTC codes) over MQTT
+- Uses a gRPC-based inter-service layer to connect Python and Java components
+- Persists incoming data to a time-series database for historical analysis
+- Processes signals with fault isolation, so a failure in one signal stream doesn't block others
+- Runs a GenAI diagnostics layer that classifies anomaly patterns across 24-hour windows
+- Automates root-cause classification instead of relying on manual trend inspection
 
 ## Tech Stack
 | Layer | Tool |
